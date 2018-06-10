@@ -35,7 +35,7 @@ with tf.name_scope("Middle_section"):
     c = tf.reduce_mean(a, name="mean_c")
     d = tf.reduce_sum(a, name="sum_d")
     e = tf.add(c, b, name="add_e")
-    
+
 with tf.name_scope("Final_node"):
     f = tf.multiply(e, d, name="mul_f")
 
@@ -43,7 +43,7 @@ with tf.name_scope("Final_node"):
 # In[5]:
 
 
-# Feed the placeholder with an array A consis=ng of 100 normally distributed random numbers with 
+# Feed the placeholder with an array A consis=ng of 100 normally distributed random numbers with
 # mean = 1 and standard deviation = 2
 input_dict = {a: np.random.normal(1, 2, 100)}
 
@@ -61,3 +61,17 @@ writer.close()
 
 sess.run(a, feed_dict=input_dict)
 
+## Plot you input array on a separate figure
+
+plt.plot(sess.run(a, feed_dict=input_dict))
+plt.show()
+
+## Random input Array a
+"""
+array([ 4,  2,  0,  3, -2, -1,  0,  0,  2,  2,  1,  4,  1,  0, -1,  1,  0,
+        1,  1,  0, -2,  0,  0,  1,  1,  0,  0,  1,  0,  2, -2, -1,  0,  1,
+       -3,  0,  3,  0, -3, -1,  0,  0,  2,  1,  2,  0,  1, -1,  4,  2,  3,
+       -1,  2, -1,  1, -2, -4,  2,  4,  1,  1,  0,  5,  2, -1, -1,  0,  3,
+        1,  0,  1,  2,  2,  0,  1,  0,  4,  2,  4,  4, -1,  1,  2,  3,  2,
+        0,  0,  0,  4,  1, -1,  0,  1,  0,  0,  0, -1,  0,  3,  3], dtype=int32)
+"""
